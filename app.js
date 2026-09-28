@@ -118,7 +118,42 @@
     status = 'sent';
     $('form').hidden = true;
     $('thanks').hidden = false;
+    confetti();
   });
+
+  // ---- Confetti (celebrates a sent RSVP) ----
+  function confetti() {
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    const c = document.createElement('canvas');
+    c.className = 'confetti';
+    document.body.appendChild(c);
+    const ctx = c.getContext('2d'), dpr = window.devicePixelRatio || 1;
+    const W = innerWidth, H = innerHeight;
+    c.width = W * dpr; c.height = H * dpr; ctx.scale(dpr, dpr);
+    const colors = ['#a9b89a', '#efeadc', '#c9d4bb', '#e8c9b8', '#d9c48f'];
+    const box = $('thanks').getBoundingClientRect();
+    const ox = W / 2, oy = Math.min(Math.max(box.top + box.height / 2, 80), H - 80);
+    const bits = Array.from({ length: 160 }, () => {
+      const a = Math.random() * Math.PI * 2, v = 4 + Math.random() * 9;
+      return { x: ox, y: oy, vx: Math.cos(a) * v, vy: Math.sin(a) * v - 6, r: Math.random() * Math.PI,
+        vr: (Math.random() - .5) * .3, w: 6 + Math.random() * 6, h: 3 + Math.random() * 5,
+        col: colors[Math.random() * colors.length | 0], round: Math.random() < .3 };
+    });
+    const start = performance.now();
+    (function frame(now) {
+      const t = now - start;
+      ctx.clearRect(0, 0, W, H);
+      ctx.globalAlpha = Math.max(0, 1 - Math.max(0, t - 2200) / 1000);
+      for (const b of bits) {
+        b.vx *= .985; b.vy = b.vy * .985 + .22; b.x += b.vx; b.y += b.vy; b.r += b.vr;
+        ctx.save(); ctx.translate(b.x, b.y); ctx.rotate(b.r); ctx.fillStyle = b.col;
+        if (b.round) { ctx.beginPath(); ctx.arc(0, 0, b.h * .7, 0, Math.PI * 2); ctx.fill(); }
+        else ctx.fillRect(-b.w / 2, -b.h / 2, b.w, b.h * Math.cos(b.r * 2));
+        ctx.restore();
+      }
+      if (t < 3200) requestAnimationFrame(frame); else c.remove();
+    })(start);
+  }
 
   render();
 })();
