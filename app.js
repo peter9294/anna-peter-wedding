@@ -44,8 +44,12 @@
   if (CFG.skipIntro) done();
   else {
     ov.addEventListener('click', open);
-    ov.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
-    ov.focus();
+    // Keyboard open without focusing the overlay (focusing it drew a focus ring around the viewport)
+    const onKey = e => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      e.preventDefault(); open(); document.removeEventListener('keydown', onKey);
+    };
+    document.addEventListener('keydown', onKey);
   }
 
   // ---- Countdown ----

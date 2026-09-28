@@ -17,7 +17,7 @@
 }
 
 * { box-sizing: border-box; }
-html, body { margin: 0; background: var(--bg); }
+html, body { margin: 0; background: var(--bg); -webkit-tap-highlight-color: transparent; }
 body {
   min-height: 100vh;
   color: var(--cream);
@@ -44,8 +44,8 @@ h1, h2 { margin: 0; }
   gap: 40px; padding: 24px; cursor: pointer; transition: opacity .8s ease;
 }
 .ov.fading { opacity: 0; }
-.ov:focus { outline: none; }
-.ov:focus-visible .ov-cta { color: var(--cream); border-bottom-color: var(--cream); }
+.ov, .ov * { -webkit-tap-highlight-color: transparent; }
+.ov:focus, .ov:focus-visible { outline: none !important; box-shadow: none; }
 .ov-head { transition: opacity .4s; text-align: center; display: flex; flex-direction: column; gap: 6px; }
 .ov.opened .ov-head { opacity: 0; }
 .ov-names { font-size: 48px; line-height: 1.1; }
