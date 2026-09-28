@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Anna &amp; Peter · 8 November 2026</title>
+<meta name="description" content="You're invited to the wedding of Anna &amp; Peter — Sunday, 8 November 2026, The Petal Garden &amp; Studio.">
+<meta property="og:title" content="Anna &amp; Peter · 8 November 2026">
+<meta property="og:description" content="You're invited to the wedding of Anna &amp; Peter — Sunday, 8 November 2026, The Petal Garden &amp; Studio.">
+<meta property="og:image" content="photos/p10.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Anuphan:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+<!-- Envelope intro -->
+<div id="ov" class="ov" role="button" tabindex="0" aria-label="Open invitation">
+  <div class="ov-head">
+    <div class="eyebrow" data-t="youre"></div>
+    <div class="script ov-names">Anna &amp; Peter</div>
+  </div>
+  <div class="env">
+    <div class="env-back"></div>
+    <div class="env-card">
+      <div class="script env-mono">A &amp; P</div>
+      <div class="env-date">08 · 11 · 2026</div>
+    </div>
+    <div class="env-front"></div>
+    <div class="env-flap"></div>
+    <div class="env-seal script">AP</div>
+  </div>
+  <div class="ov-head ov-cta" data-t="openInv"></div>
+</div>
+
+<header class="topbar">
+  <div class="script topbar-mono">A &amp; P</div>
+  <div class="lang">
+    <button type="button" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" data-lang="th" aria-pressed="false" lang="th">ไทย</button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <img src="photos/p10.jpg" alt="Anna and Peter">
+    <div class="hero-shade"></div>
+    <div class="hero-text">
+      <h1 class="script">Anna &amp; Peter</h1>
+      <div class="hero-invite" data-t="invite"></div>
+      <div class="hero-date" data-t="dateLong"></div>
+    </div>
+  </section>
+
+  <section class="countdown">
+    <div class="cd-grid">
+      <div class="cd-cell"><div class="cd-num" id="cd-d">0</div><div class="cd-lbl" data-t="days"></div></div>
+      <div class="cd-cell"><div class="cd-num" id="cd-h">00</div><div class="cd-lbl" data-t="hours"></div></div>
+      <div class="cd-cell"><div class="cd-num" id="cd-m">00</div><div class="cd-lbl" data-t="mins"></div></div>
+      <div class="cd-cell"><div class="cd-num" id="cd-s">00</div><div class="cd-lbl" data-t="secs"></div></div>
+    </div>
+  </section>
+
+  <section class="sched">
+    <div class="sched-photo"><img src="photos/p2.jpg" alt="Anna and Peter"></div>
+    <div class="sched-body">
+      <div class="eyebrow dark" data-t="schedTitle"></div>
+      <div class="sched-when">
+        <div class="sched-date" data-t="schedDate"></div>
+        <div class="sched-year" data-t="schedYear"></div>
+      </div>
+      <div class="sched-rows">
+        <div class="sched-row">
+          <div><div class="sched-name" data-t="ceremony"></div><div class="sched-note" data-t="cerNote"></div></div>
+          <div class="sched-time" data-t="cerTime"></div>
+        </div>
+        <div class="sched-row last">
+          <div><div class="sched-name" data-t="reception"></div><div class="sched-note" data-t="recNote"></div></div>
+          <div class="sched-time" data-t="recTime"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="venue">
+    <div class="venue-inner">
+      <div class="eyebrow sage" data-t="venue"></div>
+      <h2>The Petal Garden &amp; Studio</h2>
+      <a class="pill" href="https://maps.app.goo.gl/8cBosMJ2TaYUYkDU7" target="_blank" rel="noopener" data-t="directions"></a>
+      <div class="map">
+        <iframe title="Map" src="https://maps.google.com/maps?q=The%20Petal%20Garden%20%26%20Studio%20Bangkok&z=15&output=embed" loading="lazy"></iframe>
+      </div>
+      <div class="parking">
+        <div class="eyebrow sage" data-t="parking"></div>
+        <div class="parking-body" data-t="parkingBody"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="gallery">
+    <div class="gallery-head"><h2 data-t="gallery"></h2></div>
+    <div class="gallery-strip" id="strip"></div>
+  </section>
+
+  <section class="rsvp">
+    <div class="rsvp-inner">
+      <div class="rsvp-head">
+        <h2 data-t="rsvpTitle"></h2>
+        <div class="rsvp-deadline" data-t="deadline"></div>
+      </div>
+      <div class="rsvp-thanks" id="thanks" hidden data-t="thanks"></div>
+      <form id="form" novalidate>
+        <label class="field"><span class="eyebrow sage" data-t="nameL"></span>
+          <input id="name" name="name" autocomplete="name">
+        </label>
+        <div class="field"><span class="eyebrow sage" data-t="guestsL"></span>
+          <div class="stepper">
+            <button type="button" id="dec" aria-label="Fewer guests">−</button>
+            <div class="stepper-val"><span id="guests">1</span> <span id="unit" class="unit"></span></div>
+            <button type="button" id="inc" aria-label="More guests">+</button>
+          </div>
+        </div>
+        <label class="field"><span class="eyebrow sage" data-t="msgL"></span>
+          <textarea id="message" name="message" rows="3"></textarea>
+        </label>
+        <div class="err" id="err" hidden data-t="err"></div>
+        <button type="submit" class="submit" id="submit" data-t="send"></button>
+      </form>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="script foot-names">Anna &amp; Peter</div>
+    <div class="foot-date">08 · 11 · 2026</div>
+    <div class="foot-contact" data-t="contact"></div>
+    <div class="foot-phones">
+      <a href="tel:+66805921717">Peter · 080 592 1717</a>
+      <a href="tel:+66614148106">Anna · 061 414 8106</a>
+    </div>
+  </footer>
+</main>
+
+<div class="lb" id="lb" hidden>
+  <div class="lb-img" id="lb-img"></div>
+  <button type="button" class="lb-nav prev" id="lb-prev" aria-label="Previous">‹</button>
+  <button type="button" class="lb-nav next" id="lb-next" aria-label="Next">›</button>
+  <button type="button" class="lb-close" id="lb-close" aria-label="Close">✕</button>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
